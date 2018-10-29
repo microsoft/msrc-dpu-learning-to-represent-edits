@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <StartupObject>DumpCommitData.Program</StartupObject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <LangVersion>7.2</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <LangVersion>7.2</LangVersion>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="docopt.net" Version="0.6.1.9" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="2.8.2" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="2.8.2" />
+    <PackageReference Include="Mono.Options" Version="5.3.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+</Project>

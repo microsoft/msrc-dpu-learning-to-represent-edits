@@ -1,0 +1,8 @@
+name: github_edits
+channels:
+  - defaults
+dependencies:
+  - python=3.6.5
+  - docopt
+  - pip:
+    - gitpython

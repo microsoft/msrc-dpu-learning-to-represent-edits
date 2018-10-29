@@ -1,3 +1,44 @@
+## Learning to Represent Edits
+
+This repo contains scripts to extract the Github code edits datasets used in "Learning to Represent Edits" by Yin et al., 2018.
+
+### Usage
+
+First, create a conda environment that includes all required libraries.
+
+```bash
+conda env create -f environment.yml
+
+source activate github_edits  # activate the environment
+```
+
+You also need to install [dotnet core 2.1](https://www.microsoft.com/net/download).
+
+Run the script `run.sh` in the repo's root folder
+
+```bash
+./run.sh
+```
+
+This script will (1) crawl the Github to clone repos listed in `sampled_repos.txt`, 
+(2) extract commits using `DumpCommitData/extract_commits.py`; 
+(3) filter the extracted commits and perform cannonicalization, and extract the Abstract Syntax Tree of the previous and updated code in a commit (e.g., renaming locally defined variables)
+
+The final output file `DumpCommitData/github_commits.dataset.jsonl` is a 
+[jsonl](http://jsonlines.org/) file, with each line consisting of a json-serialized entry. The format is:
+
+
+| Field                  | Description                                                                  |
+|------------------------|------------------------------------------------------------------------------|
+| Id                     | Id of the entry, format is `{ProjectName}|{CommitSHA}|{FileEdited}_{EditId}` |
+| PrevCodeChunk          | Untokenized previous code (i.e., code before editing)                        |
+| UpdatedCodeChunk       | Untokenized updated code (i.e., code after editing)                          |
+| PrevCodeChunkTokens    | Tokenized previous code                                                      |
+| UpdatedCodeChunkTokens | Tokenized updated code                                                       |
+| PrevCodeAST            | Json-serialized Abstract Syntax Tree of the previous code                    |
+| UpdatedCodeAST         | Json-serialized Abstract Syntax Tree of the updated code                     |
+| PrecedingContext       | Tokenized 3 lines of code before the edit                                    |
+| SucceedingContext      | Tokenized 3 lines of code after the edit                                     |
 
 # Contributing
 
