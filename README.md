@@ -1,6 +1,6 @@
 ## Learning to Represent Edits
 
-This repo contains scripts to extract the Github code edits datasets used in "Learning to Represent Edits" by Yin et al., 2018.
+This repo contains scripts to extract the Github code edits datasets used in "[Learning to Represent Edits](https://arxiv.org/abs/1810.13337)" by Yin et al., 2018.
 
 ### Usage
 
@@ -39,6 +39,22 @@ The final output file `DumpCommitData/github_commits.dataset.jsonl` is a
 | UpdatedCodeAST         | Json-serialized Abstract Syntax Tree of the updated code                     |
 | PrecedingContext       | Tokenized 3 lines of code before the edit                                    |
 | SucceedingContext      | Tokenized 3 lines of code after the edit                                     |
+
+### Citing
+
+If you use this extractor in an academic work, please consider citing
+```
+
+@article{yin2018learning,
+   author = {{Yin}, P. and {Neubig}, G. and {Allamanis}, M. and {Brockschmidt}, M. and {Gaunt}, A.~L.},
+   title = "{Learning to Represent Edits}",
+   journal = {ArXiv e-prints},
+   archivePrefix = "arXiv",
+   eprint = {1810.13337},
+   year = 2018,
+   month = oct,
+}
+```
 
 # Contributing
 
